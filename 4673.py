@@ -1,22 +1,16 @@
-def findnonselfnumber(n):
-    num = n
-    while n != 0:
-        num += n % 10
-        n //= 10
-    return num
+num_list = []
 
+for  i in range(1, 10001):
+    total = i
+    while True:
+        total += (i % 10)
+        i = i // 10
+        if i // 10 != 0:
+            continue
+        elif i // 10 == 0:
+            break
+    num_list.append(total)
 
-nonself = [0] * 10001
-count = 1
-
-for a in range(1, 10001):
-    nonself[a] = findnonselfnumber(a)
-
-
-for i in range(1, 10001):
-    count = 0
-    for j in range(1, i):
-        if i == nonself[j]:
-            count += 1
-    if count == 0:
-        print(i) 
+for  i in range(1, 10001):
+    if (i not in num_list):
+        print(i)
